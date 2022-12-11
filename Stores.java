@@ -2,7 +2,8 @@ import java.util.*;
 
 	public class Stores {
 		
-		private HashMap<String , Integer> create = new HashMap<>();
+		
+		protected static HashMap<String , Integer> create;
 		
 		public HashMap<String,Integer> getHashmap() {
 			return create;
@@ -11,12 +12,22 @@ import java.util.*;
 		        this.create = create;
 		    }
 		
+		 		 
+		
+		
 		public static void createStore(String name, int storeNumber) {
+			
+			
+			
 			Scanner input = new Scanner(System.in);
 			String again;
 			
 			
-			HashMap<String , Integer> create = new HashMap<>();// hash map to store name with number values
+			create = new HashMap<>();// hash map to store name with number values
+			
+			System.out.println("CREATE STORE NAME:");
+			System.out.println();
+			
 		        
 
 		        
@@ -40,7 +51,7 @@ import java.util.*;
 		            
 		            
 		           
-		           System.out.println(create);
+		           
 		            
 		            
 		            System.out.print("Would you like to log another store name and number?");
@@ -58,21 +69,34 @@ import java.util.*;
 				
 				
 				System.out.println();
-				Item next= new Item();
-				next.createItem(null,0);
+				Stores ds= new Stores();
+				ds.displayStores();
+				
 			
 
 			
 			
 			
 		}
-		public void displayStores() {/// optional 
+		public static void displayStores() {/// optional 
 			
-			// print the store number by having user type in store name 
-			// get hash map value from the key 
+			if (create.isEmpty()) {
+				System.out.println("No stores found");
+			}
+			else {
+				
 			
-			System.out.println("Please verify that store name and number have been created");
-			System.out.println("Enter store name");
+			System.out.println("Here are the list of stores: " + create);
+			}
+			
+		
+		
+			
+			System.out.println();
+			Item next= new Item();
+			next.createItem(null,0);
+			
+			
 		
 			
 		}
